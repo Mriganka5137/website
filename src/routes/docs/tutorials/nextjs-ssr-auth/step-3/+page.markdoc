@@ -48,7 +48,7 @@ export function createSessionClient(request) {
     .setProject(import.meta.env.PUBLIC_APPWRITE_PROJECT_ID);
 
   // Get the session cookie from the request and set the session
-  const cookies = parseCookies(request.headers.get("cookie") ?? "");
+  const cookies = parseCookie(request.headers.get("cookie") ?? "");
   const session = cookies.get(SESSION_COOKIE);
   if (session) {
     client.setSession(session);
